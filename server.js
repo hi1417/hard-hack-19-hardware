@@ -65,7 +65,9 @@ let readFiles = function(){
 
 const hound = require('hound');
 watcher = hound.watch('out-/');
+
 watcher.on('create', function(file, stats) {
   console.log(file+ ' was created.');
-  upload(filepath+file);
+  let filename = filepath+file
+  upload(file)
 });
